@@ -18,6 +18,6 @@ const data: Character[] = Array.from({ length: 1100 }, generateCharacters);
 
 console.log(data);
 
-fs.writeFileSync('./db.json', JSON.stringify({ characters: data }, null, 2));
+fs.writeFileSync('/db.json', JSON.stringify({ characters: data }, null, 2));
 
 console.log('Data generated successfully!');
