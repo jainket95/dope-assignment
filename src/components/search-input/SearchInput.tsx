@@ -15,6 +15,8 @@ const SearchInput: FC = () => {
 
   return (
     <input
+      data-testid="search-input"
+      aria-label="Search characters"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       placeholder="Search characters by name or location..."

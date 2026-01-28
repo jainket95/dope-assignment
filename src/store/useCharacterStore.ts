@@ -21,6 +21,7 @@ interface CharacterState {
 
   toggleSelection: (id: string) => void;
   clearSelection: () => void;
+  reset: () => void;
 }
 
 export const useCharacterStore = create<CharacterState>((set) => ({
@@ -62,4 +63,11 @@ export const useCharacterStore = create<CharacterState>((set) => ({
     });
   },
   clearSelection: () => set({ selectedIds: new Set() }),
+  reset: () =>
+    set({
+      search: '',
+      healthFilters: [],
+      sortOrder: null,
+      selectedIds: new Set(),
+    }),
 }));

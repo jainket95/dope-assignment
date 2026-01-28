@@ -10,7 +10,12 @@ const SortOrder: FC = () => {
   };
 
   return (
-    <span onClick={toggleSortOrder} className="cursor-pointer">
+    <span
+      data-testid="sort-toggle"
+      aria-label="Sort by power"
+      onClick={toggleSortOrder}
+      className="cursor-pointer"
+    >
       {sortOrder === 'asc' ? '▲' : '▼'}
     </span>
   );

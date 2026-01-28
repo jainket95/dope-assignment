@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './App.css';
 
 import { useCharacterStore } from './store/useCharacterStore';
 import HomePage from './pages/home/HomePage';

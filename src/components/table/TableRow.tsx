@@ -13,7 +13,13 @@ const TableRow: FC<TableRowProps> = memo(({ row }) => {
   return (
     <tr className={`border-b ${selected ? 'bg-blue-100' : 'hover:bg-gray-300'}`}>
       <td className="p-3">
-        <input type="checkbox" checked={selected} onChange={() => toggle(row.id)} />
+        <input
+          data-testid={`row-checkbox-${row.id}`}
+          aria-label={`Select ${row.name}`}
+          type="checkbox"
+          checked={selected}
+          onChange={() => toggle(row.id)}
+        />
       </td>
       <td className="p-3">{row.name}</td>
       <td className="p-3">{row.location}</td>

@@ -1,73 +1,169 @@
-# React + TypeScript + Vite
+# Frontend Engineer Assignment — Performant Data Table
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
 
-Currently, two official plugins are available:
+Build a **performant data table in React** that can efficiently render **1000+ rows** and supports:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Row selection
+- Filtering
+- Sorting
+- Searching
+- Clean UX and accessibility
+- Maintainable, modular architecture
 
-## React Compiler
+The focus of this assignment is on **functionality, performance, clean code, and engineering quality** rather than visual design.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React + TypeScript + Vite** — Application framework & build tooling
+- **Zustand** — Lightweight global state management
+- **Tailwind CSS** — Utility-first styling
+- **Axios** — API client
+- **JSON Server** — Mock backend
+- **Faker** — Fake data generation (1000+ records)
+- **Jest + React Testing Library** — Unit & integration testing
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features & Functionality
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Data Management
+
+- Mock backend using JSON Server serving **1000+ records**
+- Data generation using Faker
+- Fully typed API integration
+
+### Table Features
+
+- Efficient rendering of large datasets
+- Row selection using checkboxes
+- Multi-select support
+- Submit action that logs **array of selected IDs** (as per assignment requirement)
+
+### Search
+
+- Real-time search by:
+  - Name
+  - Location
+
+- Debounced input for performance optimization
+
+### Filtering
+
+- Health-based filtering:
+  - Healthy
+  - Injured
+  - Critical
+
+- Multi-select filtering via dropdown in table header
+
+### Sorting
+
+- Toggle sorting by **Power** column
+- Ascending / Descending ordering
+
+### Performance Optimizations
+
+- Derived state rendering
+- Memoized table rows
+- Minimal re-renders
+- Debounced search input
+- Efficient state updates
+
+### Testing
+
+- Integration tests simulating real user behavior:
+  - Typing into search input
+  - Applying filters
+  - Selecting rows
+  - Sorting data
+  - Submitting selected rows
+
+- API layer mocking for deterministic test execution
+
+---
+
+## How To Use
+
+### 1. Install Dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Generate Mock Data
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Generates **1000+ fake records**:
+
+```bash
+npm run generate
 ```
+
+This creates a `db.json` file used by JSON Server.
+
+---
+
+### 3. Start Mock Backend (JSON Server)
+
+```bash
+npm run server
+```
+
+Server will start at:
+
+```
+http://localhost:4000/characters
+```
+
+---
+
+### 4. Start Frontend Application
+
+```bash
+npm run dev
+```
+
+App will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 5. Run Everything With One Command
+
+Starts:
+
+- Data generation
+- JSON server
+- React app
+
+```bash
+npm run dev:full
+```
+
+---
+
+### 6. Run Tests
+
+```bash
+npm run test
+```
+
+Runs full integration test suite using Jest + React Testing Library.
+
+---
+
+## Project Highlights
+
+- Clean component architecture
+- Strong separation of concerns
+- Production-grade state management
+- High performance rendering strategy
+- Robust test coverage
+- Scalable design for future extensions

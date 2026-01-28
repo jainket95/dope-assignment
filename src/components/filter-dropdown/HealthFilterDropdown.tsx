@@ -11,7 +11,12 @@ const HealthFilterDropdown: FC = () => {
 
   return (
     <div className="relative">
-      <button onClick={() => setOpen(!open)}>
+      <button
+        className="cursor-pointer"
+        data-testid="health-filter-toggle"
+        aria-label="Toggle health filter"
+        onClick={() => setOpen(!open)}
+      >
         <div className="w-6 h-6 -mb-1">
           <img src={filterIcon} alt="filter" className="object-fill" />
         </div>
@@ -21,6 +26,7 @@ const HealthFilterDropdown: FC = () => {
           {HEALTH_FILTERS.map((health) => (
             <label key={health} className="flex items-center px-4 py-2 cursor-pointer">
               <input
+                data-testid={`health-filter-${health.toLowerCase()}`}
                 type="checkbox"
                 checked={active.includes(health)}
                 onChange={() => toggle(health)}
