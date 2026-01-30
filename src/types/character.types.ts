@@ -9,3 +9,5 @@ export interface Character {
   power: number;
   viewed: boolean;
 }
+
+export type SortOrder = 'asc' | 'desc' | null;

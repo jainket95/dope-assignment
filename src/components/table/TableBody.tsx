@@ -7,7 +7,6 @@ interface TableBodyProps {
 }
 
 const TableBody: FC<TableBodyProps> = ({ rows }) => {
-  console.log(rows);
   return (
     <tbody>
       {rows.map((row) => (

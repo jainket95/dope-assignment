@@ -1,8 +1,6 @@
 import { create } from 'zustand';
-import type { Character, Health } from '../types/character.types';
+import type { Character, Health, SortOrder } from '../types/character.types';
 import { fetchCharacters } from '../api/characters';
-
-type SortOrder = 'asc' | 'desc' | null;
 
 interface CharacterState {
   data: Character[];
